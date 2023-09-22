@@ -1,5 +1,6 @@
 import { SiOpenai } from "react-icons/si";
 import { HiUser } from "react-icons/hi";
+import {BsRobot} from "react-icons/bs"
 import { TbCursorText } from "react-icons/tb";
 
 const Message = (props: any) => {
@@ -10,18 +11,20 @@ const Message = (props: any) => {
 
   return (
     <div
-      className={`group w-full text-gray-800 dark:text-gray-100 border-b border-black/10 dark:border-gray-900/50 ${
-        isUser ? "dark:bg-gray-800" : "bg-gray-50 dark:bg-[#444654]"
+      className={`group w-full text-gray-900 border-b border-black/10 dark:border-gray-900/50 ${
+        isUser ? "bg-white" : "bg-gray-200 "
       }`}
     >
       <div className="text-base gap-4 md:gap-6 md:max-w-2xl lg:max-w-xl xl:max-w-3xl flex lg:px-0 m-auto w-full">
         <div className="flex flex-row gap-4 md:gap-6 md:max-w-2xl lg:max-w-xl xl:max-w-3xl p-4 md:py-6 lg:px-0 m-auto w-full">
           <div className="w-8 flex flex-col relative items-end">
-            <div className="relative h-7 w-7 p-1 rounded-sm text-white flex items-center justify-center bg-black/75 text-opacity-100r">
+            <div className="relative h-7 w-7 p-1 rounded-sm text-white flex items-center justify-center bg-black/75 text-opacity-100">
               {isUser ? (
                 <HiUser className="h-4 w-4 text-white" />
               ) : (
-                <SiOpenai className="h-4 w-4 text-white" />
+                // <SiOpenai className="h-4 w-4 text-white" />
+                <BsRobot className="h-4 w-4 text-white"/>
+                
               )}
             </div>
             <div className="text-xs flex items-center justify-center gap-1 absolute left-0 top-2 -ml-4 -translate-x-full group-hover:visible !invisible">
@@ -42,6 +45,7 @@ const Message = (props: any) => {
                 <div className="markdown prose w-full break-words dark:prose-invert dark">
                   {!isUser && text === null ? (
                     <TbCursorText className="h-6 w-6 animate-pulse" />
+                    // "hello"
                   ) : (
                     <p>{text}</p>
                   )}

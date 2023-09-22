@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import Chat from "@/components/Chat";
 import MobileSiderbar from "@/components/MobileSidebar";
 import Sidebar from "@/components/Sidebar";
-import useAnalytics from "@/hooks/useAnalytics";
+import { ToastContainer } from "react-toastify";
+// import useAnalytics from "@/hooks/useAnalytics";
 
 export default function Home() {
   const [isComponentVisible, setIsComponentVisible] = useState(false);
-  const { trackEvent } = useAnalytics();
+  // const { trackEvent } = useAnalytics();
 
-  useEffect(() => {
-    trackEvent("page.view", { page: "home" });
-  }, []);
+  // useEffect(() => {
+  //   trackEvent("page.view", { page: "home" });
+  // }, []);
 
   const toggleComponentVisibility = () => {
     setIsComponentVisible(!isComponentVisible);
@@ -21,12 +22,13 @@ export default function Home() {
       {isComponentVisible ? (
         <MobileSiderbar toggleComponentVisibility={toggleComponentVisibility} />
       ) : null}
-      <div className="dark hidden flex-shrink-0 bg-gray-900 md:flex md:w-[260px] md:flex-col">
+      <div className="dark hidden flex-shrink-0 bg-[#1a1c23] md:flex md:w-[260px] md:flex-col">
         <div className="flex h-full min-h-0 flex-col ">
           <Sidebar />
         </div>
       </div>
       <Chat toggleComponentVisibility={toggleComponentVisibility} />
+      <ToastContainer/>
     </main>
   );
 }

@@ -38,4 +38,34 @@ body {
 textarea:focus {
   outline: none;
   box-shadow: none;
+  color: #606060;
+}
+/* In your CSS (e.g., App.css) */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+
+
+.modal-container {
+  /* background: white; */
+  position: relative;
+  z-index: 51;
+  padding: 20px;
+}
+
+.modal-content {
+  /* Add your modal content styles here */
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
